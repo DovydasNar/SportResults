@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rungtynių rezultatai</title>
+</head>
+<body>
+<h1>Visų rungtynių rezultatai</h1>
+<ul>
+    {% for match in matches %}
+       <li>
+           {{ match.match }} - {{match.date}} <br>
+           {{ match.team1 }} {{ match.score1 }} - {{ match.score2 }} {{ match.team2 }}
+       </li>
+    {% empty %}
+      <li>Rungtynių nerasta.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
