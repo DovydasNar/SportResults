@@ -6,6 +6,20 @@
 </head>
 <body>
 <h1>Visų rungtynių rezultatai</h1>
+
+<form action="" method="get">
+    <label for="team">Komanda:</label>
+    <input type="text" name="team" id="team" value="{{ query_team }}" >
+
+    <label for="date">Data:</label>
+    <input type="date" name="date" id="date" value="{{ query_date }}">
+
+    <button type="submit">Ieškoti</button>
+    <a href="/">Išvalyti</a>
+</form>
+
+<br>
+
 <ul>
     {% for match in matches %}
        <li>
