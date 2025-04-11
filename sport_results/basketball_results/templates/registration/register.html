@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2>Registracija</h2>
-<form action="" method="post">
+<form action="" method="post" class="auth-form register-form">
   {% csrf_token %}
   {% for field in form  %}
   <p>
@@ -14,6 +14,8 @@
     {% endif %}
   </p>
   {% endfor %}
-  <button type="submit">Registruotis</button>
+  <button type="submit" class="btn">Registruotis</button>
 </form>
+
+<div class="info"><a href="{% url 'login' %}">Jau turi paskyra? Prisijunk!</a></div>
 {% endblock %}

@@ -1,0 +1,277 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  margin-bottom: 16px;
+  color: #5bb2fa;
+  font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+}
+
+nav {
+  background-color: #1f3b57;
+  color: whitesmoke;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+nav .title a {
+  color: whitesmoke;
+  text-decoration: none;
+  transition: font-size 0.3s ease;
+}
+nav .title a:hover {
+  font-size: 25px;
+}
+
+nav a {
+  color: whitesmoke;
+  margin: 16px;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto 30px auto;
+  max-width: 100%;
+}
+.search label {
+  font-weight: bold;
+}
+.search .btn,
+.btn secondary {
+  margin-bottom: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 16px;
+  background-color: #ecf4f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.match-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.match-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.match-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border-left: 5px solid #42a5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.match-meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.match-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+.match-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.match-actions .btn {
+  background-color: #42a5f5;
+  color: whitesmoke;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.match-actions .btn:hover {
+  background-color: #1e88e5;
+}
+
+ul.list li {
+  background-color: #f8f9fa;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 5px solid #42a5f5;
+  border-radius: 4px;
+  list-style-type: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn {
+  background-color: #42a5f5;
+  color: whitesmoke;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #1e88e5;
+}
+
+.btn.secondary {
+  background-color: #616161;
+}
+
+.btn.secondary:hover {
+  background-color: #424242;
+}
+.btn.danger {
+  background-color: #ef5350;
+}
+.btn.danger:hover {
+  background-color: #e53935;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 20%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.toast {
+  background-color: #4caf50;
+  color: whitesmoke;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  animation: fadeInOut 4000ms ease-in-out;
+  text-align: center;
+  font-weight: bold;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.auth-form {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.auth-form p {
+  margin-bottom: 16px;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+}
+
+.auth-form .btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+}
+.auth-form .btn:hover {
+  background-color: #1e88e5;
+}
+
+.info {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.info a {
+  color: #1976d2;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.info a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}

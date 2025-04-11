@@ -3,10 +3,12 @@
 {% block content %}
 
 <h2>Prisijungimas</h2>
-<form method="post">
+<form method="post" class="auth-form login-form">
   {% csrf_token %}
   {{form.as_p}}
-  <button type="submit">Prisijungti</button>
+  <button type="submit" class="btn">Prisijungti</button>
 </form>
+
+<div class="info"><a href="{% url 'register' %}">Neturi paskyros? Registruokis!</a></div>
 
 {% endblock %}

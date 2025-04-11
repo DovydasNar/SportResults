@@ -4,28 +4,46 @@
 
 <h1>Visų rungtynių rezultatai</h1>
 
-<form action="" method="get">
+<form action="" method="get" class="search">
     <label for="team">Komanda:</label>
     <input type="text" name="team" id="team" value="{{ query_team }}" >
 
     <label for="date">Data:</label>
     <input type="date" name="date" id="date" value="{{ query_date }}">
 
-    <button type="submit">Ieškoti</button>
-    <a href="/">Išvalyti</a>
+    <button type="submit" class="btn">Ieškoti</button>
+    <a href="/" class="btn secondary">Išvalyti</a>
 </form>
 
-<br>
+<div class="match-wrapper">
+{% if user.is_authenticated %}
+    <div class="match-top">
+        <a href="{% url 'add-match' %}" class="btn">Pridėti naujas rungtynes</a>
+    </div>
 
-<ul>
+{% endif %}
+<br>
+<ul class="list">
     {% for match in matches %}
-       <li>
-           {{ match.match }} - {{match.date}} <br>
-           {{ match.team1 }} {{ match.score1 }} - {{ match.score2 }} {{ match.team2 }}
+       <li class="match-item">
+           <div class="match-info">
+               <div class="match-meta">
+               {{ match.match }} - {{match.date}}
+               </div>
+               <div class="match-score">
+               {{ match.team1 }} {{ match.score1 }} - {{ match.score2 }} {{ match.team2 }}
+               </div>
+           </div>
+           {% if user.is_authenticated %}
+           <div class="match-actions">
+            <a href="{% url 'edit-match' match.id %}" class="btn">Redaguoti</a>
+            <a href="{% url 'delete-match' match.id %}" class="btn danger">Trinti</a>
+           </div>
+           {% endif %}
        </li>
     {% empty %}
       <li>Rungtynių nerasta.</li>
     {% endfor %}
 </ul>
-
+</div>
 {% endblock %}

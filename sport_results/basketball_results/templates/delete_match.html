@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Rungtynių trynimas {% endblock %}
+
+{% block content %}
+
+<h2>Ar tikrai norite ištrinti šias rungtynes?</h2>
+
+<p>{{object.match}} - {{object.date}}</p>
+<p>{{object.team1}} {{object.score1}} - {{object.score2}} {{object.team2}} </p>
+
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn danger">Ištrinti</button>
+    <a href="{% url 'match_list' %}" class="btn secondary">Grįžti atgal</a>
+</form>
+
+{% endblock %}
