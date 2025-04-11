@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CustomLoginView, CustomLogoutView, MatchCreateView
+from .views import CustomLoginView, CustomLogoutView, MatchCreateView, statistics_view
 
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('add-match/', MatchCreateView.as_view(), name='add-match'),
     path('edit-match/<int:pk>/', views.MatchUpdateView.as_view(), name='edit-match'),
     path('delete-match/<int:pk>/', views.MatchDeleteView.as_view(), name='delete-match'),
+    path('statistics/', statistics_view, name='statistics'),
 ]

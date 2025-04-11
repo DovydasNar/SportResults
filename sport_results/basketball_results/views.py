@@ -2,7 +2,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Q
+from django.db.models import Q, Count, Avg, Max, F
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -79,5 +79,54 @@ class MatchDeleteView(LoginRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
+# statistics
+
+def statistics_view(request):
+    matches = BasketballMatch.objects.all()
+
+    team_games = {}
+    for match in matches:
+        team_games[match.team1] = team_games.get(match.team1, 0) + 1
+        team_games[match.team2] = team_games.get(match.team2, 0) + 1
+
+    team_wins = {}
+    for match in matches:
+        if match.score1 > match.score2:
+            winner = match.team1
+        elif match.score1 < match.score2:
+            winner = match.team2
+        else:
+            continue
+        team_wins[winner] = team_wins.get(winner, 0) + 1
+
+    from collections import defaultdict
+    team_score = defaultdict(list)
+
+    for match in matches:
+        team_score[match.team1].append(match.score1)
+        team_score[match.team2].append(match.score2)
+
+    team_avg_score = {team: round(sum(scores) / len(scores), 2) for team, scores in team_score.items() }
+
+    top_score = matches.order_by('-score1', '-score2').first()
+    top_team = None
+    top_points = 0
+    if top_score:
+        top_team = top_score.team1 if top_score.score1 > top_score.score2 else top_score.team2
+        top_points = top_score.score1 if top_score.score1 > top_score.score2 else top_score.score2
+
+    team_games_sorted = dict(sorted(team_games.items(), key=lambda item: item[1], reverse=True))
+    team_wins_sorted  = dict(sorted(team_wins.items(), key=lambda item: item[1], reverse=True))
+    team_avg_score_sorted  = dict(sorted(team_avg_score.items(), key=lambda item: item[1], reverse=True))
+
+    context = {
+        'team_games': team_games_sorted,
+        'team_wins': team_wins_sorted,
+        'team_avg_score': team_avg_score_sorted,
+        'top_team': top_team,
+        'top_points': top_points,
+    }
+
+    return render(request, 'statistics.html', context)
 
 

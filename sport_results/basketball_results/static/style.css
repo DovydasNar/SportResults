@@ -275,3 +275,31 @@ select {
   color: #0d47a1;
   text-decoration: underline;
 }
+
+.stats-block {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+}
+
+.stats-block h3 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.stats-block ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.stats-block ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.stats-block.highlight p {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}

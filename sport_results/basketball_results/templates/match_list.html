@@ -19,6 +19,7 @@
 {% if user.is_authenticated %}
     <div class="match-top">
         <a href="{% url 'add-match' %}" class="btn">Pridėti naujas rungtynes</a>
+        <a href="{% url 'statistics' %}" class="btn">Peržiūrėti statistiką</a>
     </div>
 
 {% endif %}

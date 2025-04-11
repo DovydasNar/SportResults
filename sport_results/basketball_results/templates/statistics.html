@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Statistika {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Komandų statistika</h2>
+
+  <div class="stats-block">
+    <h3>Daugiausia sužaista rungtynių</h3>
+    <ul>
+      {% for team, count in team_games.items %}
+        <li>{{ team }}: sužaidė {{count}} rungtynių</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="stats-block">
+    <h3>Daugiausia pergalių pasiekusi komanda</h3>
+    <ul>
+      {% for team, count in team_wins.items %}
+        <li>{{team}} laimėjo {{ count }} kartų</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="stats-block">
+    <h3>Geriausias pelnytų taškų vidurkis</h3>
+    <ul>
+      {% for team, avg in team_avg_score.items %}
+        <li>{{team}} komandos {{ avg }} vidurkis taškų per rungtynes</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="stats-block highlight">
+    <h3>Daugiausia taškų surinkusi komanda</h3>
+    {% if top_team %}
+    <p>{{top_team}} pelnė {{ top_points }} taškų per rungtynes</p>
+    {% else %}
+    <p>Nėra duomenų.</p>
+    {% endif %}
+  </div>
+
+  <a href="{% url 'match_list' %}" class="btn">Grįžti atgal</a>
+</div>
+{% endblock %}
