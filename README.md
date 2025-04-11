@@ -11,16 +11,16 @@ Projekto paleidimas:
 https://github.com/DovydasNar/SportResults.git
 
 2. Sukurkite virtualią aplinką:
-Mac/Linux:
+Mac/Linux: <br>
 python -m venv venv <br>
 source venv/bin/activate
-Windows:
+Windows: <br>
 python -m venv venv <br>
 venv\Scripts\activate
 
-3. Įdiekite reikalingas bibliotekas:
+3. Įdiekite reikalingas bibliotekas: <br>
 pip install -r requirements.txt
 
-4. Paleiskite projektą:
+4. Paleiskite projektą: <br>
 cd sport_results <br>
 python manage.py runserver
