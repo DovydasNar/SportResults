@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Rungtynių rezultatai</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>Visų rungtynių rezultatai</h1>
 
 <form action="" method="get">
@@ -30,5 +27,5 @@
       <li>Rungtynių nerasta.</li>
     {% endfor %}
 </ul>
-</body>
-</html>
+
+{% endblock %}

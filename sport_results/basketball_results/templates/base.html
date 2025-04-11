@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Rungtynių rezultatai {% endblock %}</title>
+    <style>
+.toast {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  margin: 10px auto;
+  width: fit-content;
+  border-radius: 5px;
+  animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0; transform: translateY(-10px);}
+  10% {opacity: 1; transform: translateY(0);}
+  90% {opacity: 1;}
+  100% {opacity: 0; transform: translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+<nav>
+    <div><a href="/">🏀 Krepšinio rungtynių rezultatai 🏀</a></div>
+    <div>
+        {% if user.is_authenticated %}
+        Sveiki, {{user.username}} |
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Atsijungti</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Prisijungti</a> | <a href="{% url 'register' %}">Registruotis</a>
+        {% endif %}
+    </div>
+
+    {% if messages %}
+    <div id="message-container">
+        {% for message in messages %}
+        <div id="toast">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</nav>
+</body>
+</html>
