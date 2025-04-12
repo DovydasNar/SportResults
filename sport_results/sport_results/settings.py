@@ -55,7 +55,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sport_results.urls'
+ROOT_URLCONF = 'sport_results.sport_results.urls'
+
 
 TEMPLATES = [
     {
