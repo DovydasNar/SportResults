@@ -3,24 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Rungtynių rezultatai {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
 <nav>
-    <div class="title"><a href="/">🏀 Krepšinio rungtynių rezultatai 🏀</a></div>
-    <div>
-        {% if user.is_authenticated %}
-        Sveiki, {{user.username}}
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn">Atsijungti</button>
-        </form>
-        {% else %}
-        <a href="{% url 'login' %}" class="btn">Prisijungti</a>  <a href="{% url 'register' %}" class="btn">Registruotis</a>
-        {% endif %}
-    </div>
+      <div class="title"><a href="/">🏀 Krepšinio rungtynių rezultatai 🏀</a></div>
+      <div>
+          {% if user.is_authenticated %}
+          Sveiki, {{user.username}}
+          <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Atsijungti</button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn">Prisijungti</a>  <a href="{% url 'register' %}" class="btn">Registruotis</a>
+          {% endif %}
+      </div>
 </nav>
 
 <div class="container">

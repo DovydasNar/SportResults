@@ -303,3 +303,77 @@ select {
   font-size: 18px;
   margin: 0;
 }
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav .title {
+    font-size: 22px;
+  }
+
+  nav a,
+  nav form {
+    margin: 8px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  nav form button {
+    width: 100%;
+    max-width: 160px;
+  }
+
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+  input,
+  select {
+    width: 100%;
+  }
+  .btn,
+  .btn.secondary,
+  .btn.danger {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .match-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .match-score {
+    font-size: 18px;
+  }
+  .match-actions {
+    margin-top: 12px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .match-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .auth-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1,
+  h2 {
+    font-size: 24px;
+  }
+
+  .stats-block {
+    padding: 12px;
+  }
+}
