@@ -1,1 +1,2 @@
-web gunicorn sport_results.wsgi
+web: gunicorn sport_results.wsgi
+
